@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Background Color Changer</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 50px;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.5s ease; /* Smooth color transition */
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Click the Button to Change Background Color!</h1>
+    <button id="colorButton">Change Color</button>
+
+    <script>
+        // BOM Feature: Display browser information
+        window.onload = function() {
+            alert(`Welcome to the Color Changer!\n\nYou're using: ${navigator.appName} ${navigator.appVersion}`);
+        };
+
+        // Function to generate a random color
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // Event Listener for the button click
+        document.getElementById('colorButton').addEventListener('click', function() {
+            document.body.style.backgroundColor = getRandomColor();
+            
+            // BOM Feature: Displaying the current background color in the console
+            console.log(`Background color changed to: ${document.body.style.backgroundColor}`);
+        });
+    </script>
+</body>
+</html>
